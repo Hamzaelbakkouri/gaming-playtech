@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    background-color: #1d1d1d;
+}
+.Btn_add {
+    width: fit-content;
+    margin-bottom:20px;
+    background-color: #949494;
+    padding: 5px 20px;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    text-align: 0;
+    border-radius: 6px;
+    text-decoration: 0;
+}
+.Btn_add img {
+    margin-right: 5px;
+    height: 20px;
+}
+/*tableau*/
+table {
+    border-collapse:collapse;
+    color: #c6c6c6;
+}
+th {
+    font-size: 16px;
+    border-bottom: 3px solid #3d0202;
+    padding: 5px 20px;
+    font-weight: 500;
+}
+td {
+    font-weight: 400;
+    padding: 5px 30px;
+    font-size: 14px;
+    text-align: center;
+
+}
+img {
+    height: 25px;
+   
+}
+tr:nth-child(2n){
+    background-color: #5f5f5f;
+}
+tr:nth-child(2n) td {
+    border-bottom: 1px solid #ffffff;
+    border-top:  1px solid #e0e0e0;
+}
+/*Form CSS*/
+.form {
+    background-color: #3a3a3a;
+    padding: 25px;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.991);
+    border-radius: 10px;
+}
+.form form {
+    display: flex;
+    width: 350px;
+    flex-direction: column;
+}
+.back_btn {
+    color: #ffffff;
+    text-decoration: 0;
+    display: flex;
+    align-items: center;
+}
+.back_btn img {
+    height: 16px;
+    margin-right:5px ;
+}
+h2 {
+    margin: 10px 0;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.erreur_message {
+    color: red;
+    font-size: 12px;
+}
+label {
+    margin-top: 5px;
+    text-transform: uppercase;
+}
+input{
+    padding: 5px;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 20px;
+    outline: 0;
+    margin-top: 2px;
+}
+input:focus{
+    border: 1px solid #ffcb61;
+}
+input[type="submit"]{
+    margin-top: 25px;
+    background-color: #5e5e5e;
+    border: 1px solid #898989;
+    cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+}
