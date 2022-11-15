@@ -19,22 +19,22 @@
           $row = mysqli_fetch_assoc($req);
 
 
-       //vérifier que le bouton ajouter a bien été cliqué
+       
        if(isset($_POST['button'])){
-           //extraction des informations envoyé dans des variables par la methode POST
+           
            extract($_POST);
-           //verifier que tous les champs ont été remplis
+           
            if(isset($nom) && isset($prenom) && $age){
-               //requête de modification
+               
                $req = mysqli_query($con, "UPDATE product SET productName = '$nom' , quantity = '$prenom' , price = '$age' WHERE id = $id");
-                if($req){//si la requête a été effectuée avec succès , on fait une redirection
+                if($req){
                     header("location: index.php");
-                }else {//si non
+                }else {
                     $message = "Employé non modifié";
                 }
 
            }else {
-               //si non
+               
                $message = "Veuillez remplir tous les champs !";
            }
        }

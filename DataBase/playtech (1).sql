@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 15 nov. 2022 à 12:26
+-- Généré le : mar. 15 nov. 2022 à 19:37
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -41,7 +41,8 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `category` (
   `id` int(155) NOT NULL,
-  `type` varchar(155) NOT NULL
+  `type` varchar(155) NOT NULL,
+  `categoryID` int(155) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -54,7 +55,8 @@ CREATE TABLE `product` (
   `id` int(155) NOT NULL,
   `productName` varchar(155) NOT NULL,
   `quantity` int(155) NOT NULL,
-  `price` int(155) NOT NULL
+  `price` int(155) NOT NULL,
+  `categoryID` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -71,13 +73,15 @@ ALTER TABLE `admin`
 -- Index pour la table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `categoryID` (`categoryID`);
 
 --
 -- Index pour la table `product`
 --
 ALTER TABLE `product`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `categoryID` (`categoryID`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -99,7 +103,17 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `category`
+--
+ALTER TABLE `category`
+  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `product` (`categoryID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

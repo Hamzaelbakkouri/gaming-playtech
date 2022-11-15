@@ -23,15 +23,15 @@
                         </div>
                     </div>
                     <ul>
-                        <li><a href="/index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li class="dropdown">
                            <a class="dropbtn">Gallery</a>
                            <div class="dropdown-content">
-                             <a href="/gallery.html">games </a>
-                             <a href="/product.html">accessories</a>
+                             <a href="gallery.php">games </a>
+                             <a href="product.php">accessories</a>
                            </div>
                          </li>						
-                        <li><a href="#">Contact</a></li>
+                        <li><a href="">admin</a></li>
                    </ul>
                 </div>
             </div>
