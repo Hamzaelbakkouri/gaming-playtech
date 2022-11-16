@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <div class="container2">
-        <a href="ajouter.php" class="Btn_add"> <img src="images/plus.png"> Ajouter</a>
+        <a href="ajouter.php" class="Btn_add"> <img src="../images/plus.png"> Ajouter</a>
         
         <table>
             <tr id="items">
@@ -37,8 +38,8 @@
                             <td><?=$row['quantity']?></td>
                             <td><?=$row['price']?>DH</td>
                             
-                            <td><a href="modifier.php?id=<?=$row['id']?>"><img src="images/pen.png"></a></td>
-                            <td><a href="supprimer.php?id=<?=$row['id']?>"><img src="images/trash.png"></a></td>
+                            <td><a href="modifier.php?id=<?=$row['id']?>"><img src="../images/pen.png"></a></td>
+                            <td><a href="supprimer.php?id=<?=$row['id']?>"><img src="../images/trash.png"></a></td>
                         </tr>
                         <?php
                     }
@@ -46,5 +47,6 @@
             ?>
         </table>
     </div>
+    
 </body>
 </html>

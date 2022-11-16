@@ -23,7 +23,7 @@
                         </div>
                     </div>
                     <ul>
-                        <li><a href="index.php">Home</a></li>
+                        <li><a href="index1.php">Home</a></li>
                         <li class="dropdown">
                            <a class="dropbtn">Gallery</a>
                            <div class="dropdown-content">
@@ -86,6 +86,6 @@
             
         </div>
      </footer>
-     <script src="./js/app.js"></script>
+     <script src="js/app.js"></script>
 </body>
 </html>

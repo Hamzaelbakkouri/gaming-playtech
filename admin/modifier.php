@@ -10,11 +10,11 @@
 <body>
 <?php
 
-         //connexion à la base de donnée
+         
           include_once "connexion.php";
-         //on récupère le id dans le lien
+         
           $id = $_GET['id'];
-          //requête pour afficher les infos d'un employé
+
           $req = mysqli_query($con , "SELECT * FROM product WHERE id = $id");
           $row = mysqli_fetch_assoc($req);
 
@@ -24,13 +24,13 @@
            
            extract($_POST);
            
-           if(isset($nom) && isset($prenom) && $age){
+           if(isset($productN) && isset($quantity) && $price){
                
-               $req = mysqli_query($con, "UPDATE product SET productName = '$nom' , quantity = '$prenom' , price = '$age' WHERE id = $id");
+               $req = mysqli_query($con, "UPDATE product SET productName = '$productN' , quantity = '$quantity' , price = '$price' WHERE id = $id");
                 if($req){
                     header("location: index.php");
                 }else {
-                    $message = "Employé non modifié";
+                    $message = "produit non modifié";
                 }
 
            }else {
@@ -53,11 +53,11 @@
         </p>
         <form action="" method="POST">
             <label>productName</label>
-            <input type="text" name="nom" value="<?=$row['productName']?>">
+            <input type="text" name="productN" value="<?=$row['productName']?>">
             <label>quantity</label>
-            <input type="text" name="prenom" value="<?=$row['quantity']?>">
+            <input type="text" name="quantity" value="<?=$row['quantity']?>">
             <label>price</label>
-            <input type="number" name="age" value="<?=$row['price']?>">
+            <input type="number" name="price" value="<?=$row['price']?>">
             <input type="submit" value="Modifier" name="button">
         </form>
     </div>

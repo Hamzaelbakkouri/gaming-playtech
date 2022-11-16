@@ -47,20 +47,9 @@ button {
     <title>Home</title>
 </head>
 <body>
-    <?php
-        if (isset($_POST['submit'])){
-            $email=$_POST['email'];
-            $password=$_POST['password'];
-            if(($email == 'hamza.haytam.besteam@gmail.com') && ($password=="1234")){
-                echo "your information is correct";
-            }
-            else{
-                echo "email or password is not correct";
-            }
-        }
-    ?>
+  
 
-    <form action=''  method='POST'>
+    <form action='login.php'  method='POST'>
 
         email:<input type='email' name=email>
         </br>
@@ -70,3 +59,19 @@ button {
     </form>
 </body>
 </html>
+
+<?php
+    include_once 'connexion.php';
+        if (isset($_POST['submit'])){
+            $email=$_POST['email'];
+            $password=$_POST['password'];
+            $req = mysqli_query($con , "SELECT * FROM `admin` WHERE `email`= '$email' and `password`='$password'");
+            $row= $req->fetch_assoc();
+            if(isset($row)){
+                header("location: index.php");
+            }
+            else{
+                echo "email or password is not correct";
+            }
+        }
+    ?>
