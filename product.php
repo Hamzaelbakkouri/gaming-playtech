@@ -31,7 +31,7 @@
                              <a href="product.php">accessories</a>
                            </div>
                          </li>						
-                        <li><a href="">admin</a></li>
+                        <li><a href="admin/login.php">admin</a></li>
                    </ul>
                 </div>
             </div>

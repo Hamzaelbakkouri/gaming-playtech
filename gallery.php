@@ -30,8 +30,8 @@
                              <a href="gallery.php">games</a>
                              <a href="product.php">accessories</a>
                            </div>
-                         </li>						
-                        <li><a href="admin.php">admin</a></li>
+                         </li>
+                        <li><a href="admin/login.php">admin</a></li>
                    </ul>
                 </div>
             </div>

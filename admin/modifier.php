@@ -42,7 +42,7 @@
     ?>
 
     <div class="form">
-        <a href="index.php" class="back_btn"><img src="images/back.png"> Retour</a>
+        <a href="index.php" class="back_btn"><img src="../images/back.png"> Retour</a>
         <h2>Modifier produit : <?=$row['productName']?> </h2>
         <p class="erreur_message">
            <?php 

@@ -18,11 +18,7 @@ include_once "connexion.php";
     if (isset($_POST['button'])) {
         //extraction des informations envoyé dans des variables par la methode POST
         extract($_POST);
-        
-        
-        // if (isset($productN) && isset($quantity) && $price) {
-        
-        
+         
         $req = mysqli_query($con, "INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`) VALUES (NULL, '$productN', '$quantity','$price', '$select')");
         if ($req) {
             header("location: index.php");

@@ -51,9 +51,9 @@ button {
 
     <form action='login.php'  method='POST'>
 
-        email:<input type='email' name=email>
+        email: <br> <input type='email' name=email>
         </br>
-        password:<input type='password' name='password'>
+        password: <input type='password' name='password'>
         </br>
         <input type='submit' name='submit' value='Login'>
     </form>
