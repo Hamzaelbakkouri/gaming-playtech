@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 15 nov. 2022 à 19:37
+-- Généré le : mer. 16 nov. 2022 à 19:02
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -33,6 +33,13 @@ CREATE TABLE `admin` (
   `password` varchar(155) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Déchargement des données de la table `admin`
+--
+
+INSERT INTO `admin` (`id`, `email`, `password`) VALUES
+(1, 'besteam@gmail.com', '1234');
+
 -- --------------------------------------------------------
 
 --
@@ -41,9 +48,16 @@ CREATE TABLE `admin` (
 
 CREATE TABLE `category` (
   `id` int(155) NOT NULL,
-  `type` varchar(155) NOT NULL,
-  `categoryID` int(155) NOT NULL
+  `type` varchar(155) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `category`
+--
+
+INSERT INTO `category` (`id`, `type`) VALUES
+(2, 'games'),
+(3, 'accessories\r\n');
 
 -- --------------------------------------------------------
 
@@ -56,8 +70,17 @@ CREATE TABLE `product` (
   `productName` varchar(155) NOT NULL,
   `quantity` int(155) NOT NULL,
   `price` int(155) NOT NULL,
-  `categoryID` int(15) NOT NULL
+  `cat_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `product`
+--
+
+INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`) VALUES
+(38, 'clavier scorpion', 29, 200, 3),
+(39, 'mouse Scorpion', 20, 80, 3),
+(40, 'chair', 22, 2500, 3);
 
 --
 -- Index pour les tables déchargées
@@ -73,15 +96,14 @@ ALTER TABLE `admin`
 -- Index pour la table `category`
 --
 ALTER TABLE `category`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `categoryID` (`categoryID`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Index pour la table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `categoryID` (`categoryID`);
+  ADD KEY `fk_cacacac` (`cat_id`);
 
 --
 -- AUTO_INCREMENT pour les tables déchargées
@@ -91,29 +113,29 @@ ALTER TABLE `product`
 -- AUTO_INCREMENT pour la table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Contraintes pour les tables déchargées
 --
 
 --
--- Contraintes pour la table `category`
+-- Contraintes pour la table `product`
 --
-ALTER TABLE `category`
-  ADD CONSTRAINT `category_ibfk_1` FOREIGN KEY (`categoryID`) REFERENCES `product` (`categoryID`);
+ALTER TABLE `product`
+  ADD CONSTRAINT `fk_cacacac` FOREIGN KEY (`cat_id`) REFERENCES `category` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
