@@ -44,6 +44,7 @@
         <button class="btn" onclick="filterSelection('fps')">keyboards</button>
         <button class="btn" onclick="filterSelection('old')">mouses</button>
         <button class="btn" onclick="filterSelection('normal')">gaming chair</button>
+
       </div>
       
       <div class="container">

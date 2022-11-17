@@ -1,3 +1,13 @@
+<?php
+
+ob_start(); // Output Buffering Start 
+
+session_start();
+include "admin/connexion.php";
+    $req1 = "SELECT * FROM `product` ";
+                $result = $con->query($req1);
+                $req1 = $result->fetch_assoc();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,11 +32,11 @@
                         <div class="bar">
                         </div>
                     </div>
-                    <ul>
+                    <ul id="check">
                         <li><a href="index1.php">Home</a></li>
                         <li class="dropdown">
                            <a class="dropbtn">Gallery</a>
-                           <div class="dropdown-content">
+                           <div class="dropdown-content">_
                              <a href="gallery.php">games</a>
                              <a href="product.php">accessories</a>
                            </div>
@@ -47,8 +57,12 @@
       </div>
       
       <div class="container">
+
+
+
+
         <div class="filterDiv hr"><img src="./gallery pic/evil within.jpg" alt=""> <p> The Evil Within</p></div>
-        <div class="filterDiv hr fps"> <img src="./gallery pic/friday.jpg" alt=""> <p>Friday </p></div>
+        <!-- <div class="filterDiv hr fps"> <img src="./gallery pic/friday.jpg" alt=""> <p>Friday </p></div>
         <div class="filterDiv hr "><img src="./gallery pic/hello neighbor.jpg" alt=""> <p>Hello Neighbor</p></div>
         <div class="filterDiv hr "><img src="./gallery pic/resident evil village.jpg" alt=""> <p>Resident Evil Village</p> </div>
         <div class="filterDiv hr old"><img src="./gallery pic/resident evil.jpg" alt=""><p> Resident Evil 4 </p></div>
@@ -64,7 +78,7 @@
         <div class="filterDiv normal"><img src="./gallery pic/hitman pic.jpg" alt=""><p>Hitman</p></div>
         <div class="filterDiv normal"><img src="./gallery pic/assassin's creed.jpg" alt=""><p>Assassin'S Creed</p></div>
         <div class="filterDiv fps "><img src="./gallery pic/valorant.png" alt=""><p>Valorant</p></div>
-        <div class="filterDiv normal fps"><img src="./gallery pic/sniper elite.jpg" alt=""><p>Sniper elite</p></div>
+        <div class="filterDiv normal fps"><img src="./gallery pic/sniper elite.jpg" alt=""><p>Sniper elite</p></div> -->
       </div>
       
 

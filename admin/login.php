@@ -1,63 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>   
-Body {  
-  font-family: Calibri, Helvetica, sans-serif;  
-  background-color: grey;  
-}  
-button {   
-       background-color: #4CAF50;   
-       width: 100%;  
-        color: orange;   
-        padding: 15px;   
-        margin: 10px 0px;   
-        border: none;   
-        cursor: pointer;   
-         }   
- form {   
-        border: 3px solid #f1f1f1;   
-    }   
- input[type=text], input[type=password] {   
-        width: 100%;   
-        margin: 8px 0;  
-        padding: 12px 20px;   
-        display: inline-block;   
-        border: 2px solid green;   
-        box-sizing: border-box;   
-    }  
- button:hover {   
-        opacity: 0.7;   
-    }   
-  .cancelbtn {   
-        width: auto;   
-        padding: 10px 18px;  
-        margin: 10px 5px;  
-    }   
-        
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
      
- .container {   
-        padding: 25px;   
-        background-color: lightblue;  
-    }   
-</style>   
-    <title>Home</title>
-</head>
-<body>
-  
+  </head>
+  <body>
+    <div class="center">
+      <h1>Login</h1>
+      <form method="post">
+        <div class="txt_field">
+          <input type="email" name="email" required>
+          <span></span>
+          <label>Email</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" required>
+          <span></span>
+          <label>Password</label>
+        </div>
+        <input type="submit" name="submit" value="Login">
+      </form>
+    </div>
 
-    <form action='login.php'  method='POST'>
-
-        email: <br> <input type='email' name=email>
-        </br>
-        password: <input type='password' name='password'>
-        </br>
-        <input type='submit' name='submit' value='Login'>
-    </form>
-</body>
+  </body>
 </html>
 
 <?php
@@ -65,7 +32,7 @@ button {
         if (isset($_POST['submit'])){
             $email=$_POST['email'];
             $password=$_POST['password'];
-            $req = mysqli_query($con , "SELECT * FROM `admin` WHERE `email`= '$email' and `password`='$password'");
+            $req = mysqli_query($con , "SELECT * FROM admin WHERE email= '$email' and password='$password'");
             $row= $req->fetch_assoc();
             if(isset($row)){
                 header("location: index.php");

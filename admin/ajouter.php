@@ -1,9 +1,9 @@
 <?php
 include_once "connexion.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,8 +18,8 @@ include_once "connexion.php";
     if (isset($_POST['button'])) {
         //extraction des informations envoyé dans des variables par la methode POST
         extract($_POST);
-         
-        $req = mysqli_query($con, "INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`) VALUES (NULL, '$productN', '$quantity','$price', '$select')");
+
+        $req = mysqli_query($con, "INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`, `image`, `filter`) VALUES (NULL, '$productN', '$quantity','$price', '$select', '$image', '$filter')");
         if ($req) {
             header("location: index.php");
         } else {
@@ -59,8 +59,27 @@ include_once "connexion.php";
 
                 while ($key = $result->fetch_assoc()) {
                     echo "<option value=" . $key['id'] . ">" . $key['type'] . "</option>";
-                } ?>
+                } 
+                
+                
+                ?>
             </select>
+
+                              
+                <select name="filter" id="">
+                    <option selected disabled>Select filter category</option>
+                    <option value="hr">HORROR games</option>
+                    <option value="fps">FPS games</option>
+                    <option value="old">OLD games</option>
+                    <option value="set">setup</option>
+                    <option value="key">keyboards</option>
+                    <option value="mou">mouses</option>
+                    <option value="gc">gaming chair</option>
+                </select>
+
+
+            <label for="image">image</label>
+            <input type="file" name="image" id="">
 
             <input type="submit" value="Ajouter" name="button">
         </form>
