@@ -4,20 +4,22 @@ ob_start(); // Output Buffering Start
 
 session_start();
 include "admin/connexion.php";
-    $req1 = "SELECT * FROM `product` ";
-                $result = $con->query($req1);
-                $req1 = $result->fetch_assoc();
+$req1 = "SELECT * FROM `product` ";
+$result = $con->query($req1);
+$req1 = $result->fetch_assoc();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    
+
     <title>PlayTech</title>
 </head>
+
 <body>
     <section id="header">
         <div class="header container">
@@ -35,14 +37,14 @@ include "admin/connexion.php";
                     <ul id="check">
                         <li><a href="index1.php">Home</a></li>
                         <li class="dropdown">
-                           <a class="dropbtn">Gallery</a>
-                           <div class="dropdown-content">_
-                             <a href="gallery.php">games</a>
-                             <a href="product.php">accessories</a>
-                           </div>
-                         </li>
+                            <a class="dropbtn">Gallery</a>
+                            <div class="dropdown-content">_
+                                <a href="gallery.php">games</a>
+                                <a href="product.php">accessories</a>
+                            </div>
+                        </li>
                         <li><a href="admin/login.php">admin</a></li>
-                   </ul>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -54,14 +56,25 @@ include "admin/connexion.php";
         <button class="btn" onclick="filterSelection('fps')">FPS games</button>
         <button class="btn" onclick="filterSelection('old')">OLD games</button>
         <button class="btn" onclick="filterSelection('normal')">NORMAL games</button>
-      </div>
-      
-      <div class="container">
+    </div>
+
+    <div class="container">
+        <?php
+        include_once 'admin/connexion.php';
+        $req = mysqli_query($con, "SELECT * FROM `product`");
+        $rows = $req->fetch_all(MYSQLI_ASSOC);
+
+        foreach ($rows as $row) { ?>
+            <div class="filterDiv <?= $row['filter'] ?>"><img src="<?php echo $row['image'] ?>" alt="">
+                <p> <?php echo $row['productName'] ?></p>
+                <p> <?php echo $row['price'] ?></p>
+            </div>
+
+        <?php }
+        ?>
 
 
-
-
-        <div class="filterDiv hr"><img src="./gallery pic/evil within.jpg" alt=""> <p> The Evil Within</p></div>
+        <!-- <div class="filterDiv hr"><img src="./gallery pic/evil within.jpg" alt=""> <p> <?php echo $row['productName'] ?></p><p> <?php echo $row['price'] ?></p></div> -->
         <!-- <div class="filterDiv hr fps"> <img src="./gallery pic/friday.jpg" alt=""> <p>Friday </p></div>
         <div class="filterDiv hr "><img src="./gallery pic/hello neighbor.jpg" alt=""> <p>Hello Neighbor</p></div>
         <div class="filterDiv hr "><img src="./gallery pic/resident evil village.jpg" alt=""> <p>Resident Evil Village</p> </div>
@@ -79,8 +92,8 @@ include "admin/connexion.php";
         <div class="filterDiv normal"><img src="./gallery pic/assassin's creed.jpg" alt=""><p>Assassin'S Creed</p></div>
         <div class="filterDiv fps "><img src="./gallery pic/valorant.png" alt=""><p>Valorant</p></div>
         <div class="filterDiv normal fps"><img src="./gallery pic/sniper elite.jpg" alt=""><p>Sniper elite</p></div> -->
-      </div>
-      
+    </div>
+
 
     <footer>
         <div class="footer-all">
@@ -91,15 +104,16 @@ include "admin/connexion.php";
                 <ul> <img id="media" src="./pictures/twit-removebg-preview.png" alt=""></ul>
                 <ul> <img id="media" src="./pictures/yt-removebg-preview.png" alt=""></ul>
             </li>
-            <dd class="infofooter" >
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+            <dd class="infofooter">
+                <p>Lorem ipsum dolor <br> amet consectetur adipisicing elit. </p>
+                <p>Lorem ipsum dolor <br> amet consectetur adipisicing elit. </p>
+                <p>Lorem ipsum dolor <br> amet consectetur adipisicing elit. </p>
+                <p>Lorem ipsum dolor <br> amet consectetur adipisicing elit. </p>
             </dd>
-            
+
         </div>
-     </footer>
-     <script src="js/app.js"></script>
+    </footer>
+    <script src="js/app.js"></script>
 </body>
+
 </html>

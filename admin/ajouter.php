@@ -4,6 +4,7 @@ include_once "connexion.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,20 +18,68 @@ include_once "connexion.php";
 
     if (isset($_POST['button'])) {
         //extraction des informations envoyé dans des variables par la methode POST
-        extract($_POST);
+        $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/gaming-playtech/uploads/";
+        $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+        $uploadOk = 1;
+        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
-        $req = mysqli_query($con, "INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`, `image`, `filter`) VALUES (NULL, '$productN', '$quantity','$price', '$select', '$image', '$filter')");
-        if ($req) {
-            header("location: index.php");
+        // Check if image file is a actual image or fake image
+
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        if ($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
         } else {
-            $message = "produit non ajouté";
+            echo "File is not an image.";
+            $uploadOk = 0;
         }
-    } else {
-        
-        $message = "Veuillez remplir tous les champs !";
-    }
-    // }
     
+
+    // Check if file already exists
+    // if (file_exists($target_file)) {
+    //     echo "Sorry, file already exists.";
+    //     $uploadOk = 0;
+    // }
+
+    // Check file size
+    // if ($_FILES["fileToUpload"]["size"] > 500000) {
+    //     echo "Sorry, your file is too large.";
+    //     $uploadOk = 0;
+    // }
+
+    // Allow certain file formats
+    // if (
+    //     $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    //     && $imageFileType != "gif") 
+    //     {
+    //     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+    //     $uploadOk = 0;
+    // }
+
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+        // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "The file " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " has been uploaded.";
+            $taza = "uploads/" . $_FILES["fileToUpload"]["name"];
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
+
+    extract($_POST);
+
+    $req = mysqli_query($con, "INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`, `image`, `filter`) VALUES (NULL, '$productN', '$quantity','$price', '$select', '$taza', '$filter')");
+    if ($req) {
+        header("location: index.php");
+    } else {
+        $message = "produit non ajouté";
+    }
+
+    }
+
     ?>
     <div class="form">
         <a href="index.php" class="back_btn"><img src="../images/back.png"> Retour</a>
@@ -44,7 +93,7 @@ include_once "connexion.php";
             ?>
 
         </p>
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data" novalidate>
             <label>productName</label>
             <input type="text" name="productN" required>
             <label>quantity</label>
@@ -59,27 +108,27 @@ include_once "connexion.php";
 
                 while ($key = $result->fetch_assoc()) {
                     echo "<option value=" . $key['id'] . ">" . $key['type'] . "</option>";
-                } 
-                
-                
+                }
+
+
                 ?>
             </select>
 
-                              
-                <select name="filter" id="">
-                    <option selected disabled>Select filter category</option>
-                    <option value="hr">HORROR games</option>
-                    <option value="fps">FPS games</option>
-                    <option value="old">OLD games</option>
-                    <option value="set">setup</option>
-                    <option value="key">keyboards</option>
-                    <option value="mou">mouses</option>
-                    <option value="gc">gaming chair</option>
-                </select>
+
+            <select name="filter" id="">
+                <option selected disabled>Select filter category</option>
+                <option value="hr">HORROR games</option>
+                <option value="fps">FPS games</option>
+                <option value="old">OLD games</option>
+                <option value="set">setup</option>
+                <option value="key">keyboards</option>
+                <option value="mou">mouses</option>
+                <option value="gc">gaming chair</option>
+            </select>
 
 
             <label for="image">image</label>
-            <input type="file" name="image" id="">
+            <input type="file" name="fileToUpload" id="">
 
             <input type="submit" value="Ajouter" name="button">
         </form>
