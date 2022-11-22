@@ -1,8 +1,5 @@
 <?php
 
-ob_start(); // Output Buffering Start 
-
-session_start();
 include "admin/connexion.php";
 $req1 = "SELECT * FROM `product` ";
 $result = $con->query($req1);
