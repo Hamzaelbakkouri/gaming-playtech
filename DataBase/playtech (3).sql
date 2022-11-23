@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 16 nov. 2022 à 19:02
+-- Généré le : mer. 23 nov. 2022 à 13:56
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -70,17 +70,22 @@ CREATE TABLE `product` (
   `productName` varchar(155) NOT NULL,
   `quantity` int(155) NOT NULL,
   `price` int(155) NOT NULL,
-  `cat_id` int(11) NOT NULL
+  `cat_id` int(11) NOT NULL,
+  `image` varchar(255) CHARACTER SET utf8 NOT NULL,
+  `filter` varchar(155) CHARACTER SET utf8 NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `product`
 --
 
-INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`) VALUES
-(38, 'clavier scorpion', 29, 200, 3),
-(39, 'mouse Scorpion', 20, 80, 3),
-(40, 'chair', 22, 2500, 3);
+INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`, `image`, `filter`) VALUES
+(85, 'doliprane', 43, 33, 3, 'uploads/Ant-Esports-Infinity-Plus-Red-Black-1_1500x.jpg', 'gc'),
+(86, 'controler ', 20, 40, 3, 'uploads/index-xbobx-1666290175.jpg', 'set'),
+(87, 'casques', 300, 160, 3, 'uploads/61Cpww1Dn-L._SX522_.jpg', 'set'),
+(88, 'Mokhlis l9Irch', 1, 1, 3, 'uploads/MSI-DS4200-MEQ.jpg', 'old'),
+(89, 'dfgh', 234567, 2345, 2, 'uploads/Ant-Esports-Infinity-Plus-Red-Black-1_1500x.jpg', 'fps'),
+(91, 'HAITAM', 234, 65, 2, 'uploads/images.jfif', 'fps');
 
 --
 -- Index pour les tables déchargées
@@ -125,7 +130,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- Contraintes pour les tables déchargées
