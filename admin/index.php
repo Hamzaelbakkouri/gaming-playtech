@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<a href="/gaming-playtech/index1.php" class="back_btn"><img src="../images/back.png"> Retour</a>
+<a href="http://127.0.0.1:5500/index1.html" class="back_btn"><img src="../images/back.png"> Retour</a>
     <div class="container2">
         <a href="ajouter.php" class="Btn_add"> <img src="../images/plus.png"> Ajouter</a>
         

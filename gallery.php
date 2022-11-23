@@ -16,36 +16,12 @@ $req1 = $result->fetch_assoc();
 
     <title>PlayTech</title>
 </head>
-
 <body>
-    <section id="header">
-        <div class="header container">
-            <div class="nav-bar">
-                <div class="brand">
+<div class="brand">
                     <a href="#hero">
-                        <h1><span>P</span>lay <span>T</span>ech</h1>
+                        <h1> <a href="http://127.0.0.1:5500/index1.html">back retour</a></h1>
                     </a>
                 </div>
-                <div class="nav-list">
-                    <div class="hamburger">
-                        <div class="bar">
-                        </div>
-                    </div>
-                    <ul id="check">
-                        <li><a href="index1.php">Home</a></li>
-                        <li class="dropdown">
-                            <a class="dropbtn">Gallery</a>
-                            <div class="dropdown-content">_
-                                <a href="gallery.php">games</a>
-                                <a href="product.php">accessories</a>
-                            </div>
-                        </li>
-                        <li><a href="admin/login.php">admin</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <div id="myBtnContainer">
         <button class="btn active" onclick="filterSelection('all')">all</button>
