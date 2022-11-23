@@ -17,13 +17,11 @@ include_once "connexion.php";
     <?php
 
     if (isset($_POST['button'])) {
-        //extraction des informations envoyé dans des variables par la methode POST
+
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/gaming-playtech/uploads/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-
-        // Check if image file is a actual image or fake image
 
         $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
         if ($check !== false) {

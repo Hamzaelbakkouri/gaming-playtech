@@ -30,5 +30,17 @@ function RemoveClass(element, name) {
   element.className = arr1.join(" ");
 }
 
+const bar = document.querySelector('ul');
+		const btn = document.getElementsByClassName('bx-menu');
+		console.log(btn)
+
+		function menu() {
+			alert('gg')
+			btn.classList.add('bx-x')
+			bar.classList.add('active')
+			console.log(bar)
+			console.log(btn)
+		}
+
 
 
