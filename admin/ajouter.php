@@ -105,7 +105,7 @@ include_once "connexion.php";
 
 
             <label for="image">image</label>
-            <input type="file" name="fileToUpload" id="">
+            <input type="file" name="fileToUpload" id="" >
 
             <input type="submit" value="Ajouter" name="button">
         </form>

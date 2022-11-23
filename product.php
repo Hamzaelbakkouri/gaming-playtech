@@ -53,13 +53,16 @@
         include_once 'admin/connexion.php';
         $req = mysqli_query($con, "SELECT * FROM `product` WHERE `cat_id`= 3");
         $rows = $req->fetch_all(MYSQLI_ASSOC);
-        
+        $space = " &ensp; &ensp;";
+        $space2 =  $space ." : " . $space;
             foreach ($rows as $row) { 
                 ?>
-            <div class="filterDiv <?= $row['filter'] ?>"><img src="<?php echo $row['image'] ?>" alt="">
-            <p> <?php echo $row['productName'] ?></p>
-            <p> <?php echo $row['price'] ?></p>
-        </div>
+            
+        <div class="filterDiv <?= $row['filter'] ?>"><img src="<?php echo $row['image'] ?>" alt="">
+                <p> ProductName  <?php echo $space2 . $row['productName'] ?></p>
+                <p> Price   <?php echo $space. $space.$space .$space2 . $row['price'] ?> DH</p>
+                <p> Quantity <?php echo $space2 . $row['quantity'] ?></p>
+            </div>
     
         <?php 
         }
