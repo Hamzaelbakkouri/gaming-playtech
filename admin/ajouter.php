@@ -85,7 +85,7 @@ include_once "connexion.php";
                     echo "<option value=" . $key['id'] . ">" . $key['type'] . "</option>";
                 }
 
-
+                
                 ?>
             </select>
 
