@@ -35,7 +35,6 @@ const bar = document.querySelector('ul');
 		console.log(btn)
 
 		function menu() {
-			alert('gg')
 			btn.classList.add('bx-x')
 			bar.classList.add('active')
 			console.log(bar)
