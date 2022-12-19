@@ -6,6 +6,7 @@
     font-family: 'Poppins', sans-serif;
 
 }
+
 body {
     display: flex;
     align-items: center;
@@ -63,7 +64,6 @@ tr:nth-child(2n) td {
 .form {
     background-color: #3a3a3a;
     padding: 25px;
-    box-shadow: 0 0 50px rgba(255, 0, 0, 0.991);
     border-radius: 10px;
 }
 .form form {

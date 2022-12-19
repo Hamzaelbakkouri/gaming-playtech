@@ -20,11 +20,11 @@
 
 
        
-       if(isset($_POST['button'])){
+       if(isset($_POST['submit'])){
            
            extract($_POST);
            
-           if(isset($productN) && isset($quantity) && $price){
+           if(isset($productN) && isset($quantity) && isset($price)){
                
                $req = mysqli_query($con, "UPDATE product SET productName = '$productN' , quantity = '$quantity' , price = '$price' WHERE id = $id");
                 if($req){
@@ -58,7 +58,7 @@
             <input type="text" name="quantity" value="<?=$row['quantity']?>">
             <label>price</label>
             <input type="number" name="price" value="<?=$row['price']?>">
-            <input type="submit" value="Modifier" name="button">
+            <input type="submit" value="Modifier" name="submit">
         </form>
     </div>
 </body>

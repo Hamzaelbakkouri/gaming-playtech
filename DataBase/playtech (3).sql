@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 23 nov. 2022 à 14:25
+-- Généré le : mar. 06 déc. 2022 à 14:33
 -- Version du serveur : 10.4.25-MariaDB
 -- Version de PHP : 8.1.10
 
@@ -80,12 +80,12 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`, `image`, `filter`) VALUES
-(85, 'doliprane', 43, 33, 3, 'uploads/Ant-Esports-Infinity-Plus-Red-Black-1_1500x.jpg', 'gc'),
 (86, 'controler ', 20, 40, 3, 'uploads/index-xbobx-1666290175.jpg', 'set'),
 (87, 'casques', 300, 160, 3, 'uploads/61Cpww1Dn-L._SX522_.jpg', 'set'),
-(88, 'Mokhlis l9Irch', 1, 1, 3, 'uploads/MSI-DS4200-MEQ.jpg', 'old'),
-(89, 'dfgh', 234567, 2345, 2, 'uploads/Ant-Esports-Infinity-Plus-Red-Black-1_1500x.jpg', 'fps'),
-(91, 'HAITAM', 234, 65, 2, 'uploads/images.jfif', 'fps');
+(92, 'ecran', 234, 500, 3, 'uploads/images.jfif', 'set'),
+(93, 'clavier', 23, 200, 2, 'uploads/MSI-DS4200-MEQ.jpg', 'fps'),
+(94, 'hitman', 20, 150, 2, 'uploads/hitman2.jpg', 'old'),
+(96, 'controller', 123, 33, 3, 'uploads/index-xbobx-1666290175.jpg', 'set');
 
 --
 -- Index pour les tables déchargées
@@ -130,7 +130,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT pour la table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
+  MODIFY `id` int(155) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- Contraintes pour les tables déchargées

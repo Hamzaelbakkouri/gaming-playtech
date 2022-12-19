@@ -16,7 +16,7 @@ include_once "connexion.php";
 <body>
     <?php
 
-    if (isset($_POST['button'])) {
+    if (isset($_POST['submit'])) {
 
         $target_dir = $_SERVER['DOCUMENT_ROOT'] . "/gaming-playtech/uploads/";
         $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
@@ -68,15 +68,15 @@ include_once "connexion.php";
             ?>
 
         </p>
-        <form action="" method="POST" enctype="multipart/form-data" novalidate>
+        <form action="" method="POST" enctype="multipart/form-data">
             <label>productName</label>
             <input type="text" name="productN" required>
             <label>quantity</label>
             <input type="number" name="quantity" required>
             <label>price</label>
             <input type="number" name="price" required>
-            <select name="select" id="">
-                <option selected disabled>Select an option</option>
+            <select name="select" required>
+                <option selected disabled value="">Select an option</option>
                 <?php
                 $req1 = "SELECT * FROM `category` ";
                 $result = $con->query($req1);
@@ -88,24 +88,10 @@ include_once "connexion.php";
                 
                 ?>
             </select>
-
-
-            <select name="filter" id="">
-                <option selected disabled>Select filter category</option>
-                <option value="hr">HORROR games</option>
-                <option value="fps">FPS games</option>
-                <option value="old">OLD games</option>
-                <option value="set">setup</option>
-                <option value="key">keyboards</option>
-                <option value="mou">mouses</option>
-                <option value="gc">gaming chair</option>
-            </select>
-
-
             <label for="image">image</label>
-            <input type="file" name="fileToUpload" id="" >
+            <input type="file" name="fileToUpload" required >
 
-            <input type="submit" value="Ajouter" name="button">
+            <input type="submit" value="Ajouter" name="submit">
         </form>
     </div>
 </body>
