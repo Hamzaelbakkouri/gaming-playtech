@@ -10,7 +10,7 @@ include_once "connexion.php";
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -45,8 +45,8 @@ include_once "connexion.php";
     }
 
     extract($_POST);
-
-    $req = mysqli_query($con, "INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`, `image`, `filter`) VALUES (NULL, '$productN', '$quantity','$price', '$select', '$taza', '$filter')");
+    {
+        $req = mysqli_query($con, "INSERT INTO `product` (`id`, `productName`, `quantity`, `price`, `cat_id`, `image`, `filter`) VALUES (NULL, '$productN', '$quantity','$price', '$select', '$taza', '$filter')");
     if ($req) {
         header("location: index.php");
     } else {
@@ -55,6 +55,9 @@ include_once "connexion.php";
 
     }
 
+    }
+
+    
     ?>
     <div class="form">
         <a href="index.php" class="back_btn"><img src="../images/back.png"> Retour</a>
@@ -70,11 +73,11 @@ include_once "connexion.php";
         </p>
         <form action="" method="POST" enctype="multipart/form-data">
             <label>productName</label>
-            <input type="text" name="productN" required>
+            <input type="text" name="productN" value="" required>
             <label>quantity</label>
-            <input type="number" name="quantity" required>
+            <input type="number" name="quantity" required min=1 trim>
             <label>price</label>
-            <input type="number" name="price" required>
+            <input type="number" name="price" required min=1>
             <select name="select" required>
                 <option selected disabled value="">Select an option</option>
                 <?php
